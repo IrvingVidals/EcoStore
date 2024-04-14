@@ -1,0 +1,234 @@
+$primary-color: #FFEFE7;
+$secondary-color: #FFDAC6;
+$tertiary-color: #BABD8D;
+$primary-text-color: #7C6A0A;
+$font-stack: 'IBM Plex Sans', sans-serif;
+$p-size: 1.5em;
+$background-orange: #FA9500;
+
+@mixin flexCenter($direction,$content,$align){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $content;
+    align-items: $align;
+}
+
+@mixin buttonStyle{
+    button{
+        background: none;
+        border-style: none;
+    }
+}
+body{
+    margin: 0;
+    padding: 0;
+    background-color: $primary-color;
+    font-family: $font-stack;
+}
+
+nav{
+    width: auto;
+    @include flexCenter(row, space-between, center);
+    color: $primary-text-color;
+    padding: 15px;
+    p{
+        font-size: $p-size;
+        padding-left: 30px;
+    }
+    .icons{
+        display: flex;
+        gap: 15px;
+        @include buttonStyle;
+    }
+}
+
+article{
+    color: $primary-text-color;
+    width: auto;
+    padding: 0 45px;
+    @include flexCenter(row, space-between, center);
+    .intro-section{
+        display: flex;
+        @include flexCenter(column, space-evenly, flex-start);
+        gap: 15px;
+        padding-top: 50px;
+    }
+    h1{
+        font-size: 3em;
+        padding: 0;
+        margin: 0;
+    }
+    img{
+        width: 25vw;
+        border-radius: 19px;
+    }
+    p{
+        width: 375px;
+        font-size: $p-size;
+    }
+    @include buttonStyle;
+    button{
+        width: 12vw;
+        padding: 20px;
+        background-color: $background-orange;
+        border-radius: 35px;
+        color: white;
+        font-size: 1em;
+        &:hover{
+            transform: scale(1.1);
+        }
+    }
+}
+
+section{
+    width: auto;
+    height: auto;
+    padding: 60px;
+    h2{
+        color: $primary-text-color;
+        font-size: 3em;
+        font-weight: 400;
+    }
+    .healthcare{
+        padding-bottom: 60px;
+        h2{
+            padding-bottom: 60px;
+        }
+    
+    .card-section{
+        @include flexCenter(row, space-evenly, center);
+        width: auto;
+        height: auto;
+        column-gap: 200px;
+        row-gap: 80px;
+        flex-wrap: wrap;
+      }
+      .product-card{
+        width: 14vw;
+        height: auto;
+        background-color: $secondary-color;
+        color: $primary-text-color;
+        padding: 20px;
+        border-radius: 8px;
+        .icon{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: flex-end;
+            padding-bottom: 12px;
+            svg{
+                width: 28px;
+                height: 28px;
+                stroke-width: 2;
+            }
+
+            svg path{
+                stroke: $primary-text-color;
+            }
+        }
+        .product-card--image{
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 12vw;
+                height: 30vh;
+                object-fit: cover;
+                border-radius: 6px;
+            }
+        }
+
+        p{
+            margin: 0;
+            }
+        }
+    }
+
+    .furniture{
+        @extend .healthcare;
+        .product-card{
+            background-color: $tertiary-color;
+            color: $primary-color;
+            .icon{
+                svg path{
+                    stroke: $primary-color;
+                }
+            }
+        }
+    }
+}
+
+main{
+    background-color: $primary-color;
+}
+
+.about-us{
+    padding-bottom: 60px;
+    h2{
+        font-weight: bold;
+        padding-bottom: 60px;
+    }
+    .mission-section{
+        @include flexCenter(row, space-evenly, center);
+        .earth{
+            width: 30vw;
+            display: flex;
+            gap: 40px;
+            color: #E86424;
+            img{
+                object-fit: contain;
+            }
+            p{
+                text-align: center;
+                font-size: $p-size;
+            }
+        }
+        .innovation{
+            @extend .earth;
+        }
+    }
+}
+
+.gallery{
+    .gallery-imgs{
+        @include flexCenter(row, space-between, center);
+        img{
+            width: 28vw;
+            height: 45vh;
+            object-fit: cover;
+            object-position: 5px 35%;
+            border-radius: 16px;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+}
+
+.find-us{
+    color: #E86424;
+    h2{
+        padding-bottom: 60px;
+        padding-top: 60px;
+    }
+    .map{
+        @include flexCenter(row, center, center);
+        padding-bottom: 50px;
+        object-fit: cover;
+    }
+
+}
+
+footer{
+    background-color: $background-orange;
+    width: 100%;
+    height: auto;
+    color: white;
+    padding: 40px;
+    .social-media{
+        @include flexCenter(row, center, center);
+        gap: 40px;
+    }
+}
